@@ -4344,6 +4344,12 @@ body[dir=rtl] .checkbox:checked,body[dir=rtl] .checkbox[checked=true] {
 .max-w-sm {
   max-width: 24rem;
 }
+.max-w-lg {
+  max-width: 32rem;
+}
+.max-w-4xl {
+  max-width: 56rem;
+}
 .flex-1 {
   flex: 1 1 0%;
 }

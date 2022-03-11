@@ -1,9 +1,9 @@
 <div
     class="fixed left-0 right-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto bg-gray-400 bg-opacity-60 top-4 h-modal md:h-full md:inset-0">
-    <div class="relative w-full h-full max-w-md px-4 md:h-auto ">
+    <div class="relative h-full max-w-4xl px-4 md:h-auto ">
         <!-- Modal content -->
-        <div class="bg-white rounded-lg shadow ">
-            <div class="overflow-auto rounded-lg shadow-md m-4">
+        <div class="p-3 bg-white rounded-lg shadow">
+            <div class="m-4 overflow-auto rounded-lg shadow-md">
                 <table class="min-w-full">
                     <thead class="bg-gray-50">
                     <tr>

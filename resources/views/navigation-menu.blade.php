@@ -12,6 +12,14 @@
             <ul tabindex="0"
                 class="p-2 mt-3 bg-white shadow menu menu-compact dropdown-content rounded-box w-52 hover:bg-gray-100">
                 <!-- Authentication -->
+                <!-- Account Management -->
+                <div class="block px-4 py-2 text-xs text-gray-400">
+                    {{ __('Manage Account') }}
+                </div>
+
+                <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                    {{ __('Profile') }}
+                </x-jet-dropdown-link>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
