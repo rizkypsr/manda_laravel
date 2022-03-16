@@ -6,6 +6,8 @@ use App\Http\Livewire\Kelas;
 use App\Http\Livewire\Mapel;
 use App\Http\Livewire\Guru;
 use App\Http\Livewire\Nilai;
+use App\Http\Livewire\ProfileGuru;
+use App\Http\Livewire\ProfileSiswa;
 use App\Http\Livewire\Siswa;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +37,13 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::get('nilai', Nilai::class)->name('nilai')->withoutMiddleware('admin');
     });
 
+    Route::middleware('role:siswa')->group(function () {
+        Route::get('siswa-profile/{id}', ProfileSiswa::class)->name('siswa.profile');
+    });
+
+    Route::middleware('role:guru')->group(function () {
+        Route::get('guru-profile/{id}', ProfileGuru::class)->name('guru.profile');
+    });
 
     Route::get('/dashboard', function () {
         return view('dashboard', ['header' => 'Dashboard']);

@@ -129,22 +129,22 @@ class Siswa extends Component
             ]
         );
 
-        $guruImage = null;
+        $siswaImg = null;
 
         if ($image = $this->foto) {
-            $guruImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $siswaImg = date('YmdHis') . "." . $image->getClientOriginalExtension();
 
             $this->foto->storeAs(
                 'public/',
-                $guruImage
+                $siswaImg
             );
         }
 
         User::create([
             'username' => $this->nisn,
             'password' => Hash::make($this->nisn),
-            'roles_id' => 1,
-            'profile_photo_path' => $guruImage,
+            'roles_id' => 3,
+            'profile_photo_path' => $siswaImg,
         ]);
 
         session()->flash(
@@ -158,7 +158,6 @@ class Siswa extends Component
 
     public function update($id)
     {
-
         $this->validate([
             'nama' => 'required',
             'jenisKelamin' => 'required',

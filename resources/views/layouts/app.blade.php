@@ -29,7 +29,6 @@
 
 <body class="font-sans antialiased">
     <div class="flex min-h-screen px-6 py-8 bg-gray-100">
-        {{-- @include('partials.sidebar') --}}
         @livewire('sidebar')
 
         <!-- Page Content -->

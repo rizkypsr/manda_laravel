@@ -24,9 +24,9 @@ class CheckRole
             return redirect('/');
         }
 
-        // if ($role == 'siswa' && auth()->user()->roles_id != 3) {
-        //     return redirect('/');
-        // }
+        if ($role == 'siswa' && auth()->user()->roles_id != 3) {
+            return redirect('/');
+        }
 
         return $next($request);
     }
