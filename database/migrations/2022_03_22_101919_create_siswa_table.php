@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSiswasTable extends Migration
+class CreateSiswaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,10 @@ class CreateSiswasTable extends Migration
     {
         Schema::create('siswa', function (Blueprint $table) {
             $table->string('nisn')->primary();
-            $table->foreignIdFor(\App\Models\Kelas::class);
+            $table->foreignId('kelas_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
             $table->string('nama');
             $table->string('jenis_kelamin');
             $table->string('nama_ayah');

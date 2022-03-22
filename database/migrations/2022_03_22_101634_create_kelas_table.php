@@ -1,10 +1,11 @@
 <?php
 
+use App\Models\Jurusan;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJurusansTable extends Migration
+class CreateKelasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +14,17 @@ class CreateJurusansTable extends Migration
      */
     public function up()
     {
-        Schema::create('jurusan', function (Blueprint $table) {
+        Schema::create('kelas', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('semester');
+            $table->year('tahun_ajaran');
             $table->timestamps();
+
+            $table->foreignId('jurusan_id')
+                ->constrained('jurusan', 'id')
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
         });
     }
 
@@ -27,6 +35,6 @@ class CreateJurusansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jurusan');
+        Schema::dropIfExists('kelas');
     }
 }

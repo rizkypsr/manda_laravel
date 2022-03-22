@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\Guru;
-use App\Models\Kelas;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,9 +15,17 @@ class CreateGuruKelasTable extends Migration
     {
         Schema::create('guru_kelas', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Guru::class);
-            $table->foreignIdFor(Kelas::class);
             $table->timestamps();
+
+            $table->string('guru_id');
+            $table->foreign('guru_id')->references('nip')->on('guru')
+                ->cascadeOnUpdate()
+                ->restrictOnDelete();
+
+            $table->foreignId('kelas_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
         });
     }
 
