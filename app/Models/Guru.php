@@ -25,6 +25,11 @@ class Guru extends Model
         return $this->hasOne(User::class, 'username', 'nip');
     }
 
+    public function kelas()
+    {
+        return $this->belongsToMany(Kelas::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -38,5 +43,6 @@ class Guru extends Model
         'jenis_kelamin',
         'agama',
         'pendidikan',
+        'kelas_id'
     ];
 }

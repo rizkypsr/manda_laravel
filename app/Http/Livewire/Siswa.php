@@ -206,7 +206,15 @@ class Siswa extends Component
 
     public function delete()
     {
-        \App\Models\Siswa::where('nisn', $this->deleteId)->delete();
+        $siswa = \App\Models\Siswa::where('nisn', $this->deleteId)->first();
+
+        if ($siswa->kelas()->exists() || $siswa->user()->exists()) {
+            session()->flash('failed', 'Gagal Menghapus! Data sedang digunakan di tabel lain');
+            $this->closeDeleteModalPopover();
+            return;
+        }
+
+        $siswa->delete();
         $user = User::where('username', $this->deleteId)->first();
         $user->tokens->each->delete();
         $user->delete();

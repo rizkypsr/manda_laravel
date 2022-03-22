@@ -37,7 +37,7 @@ class Guru extends Component
         $this->header = 'Guru';
 
         return view('guru.index', [
-            'guru' => GuruModel::with(['user'])->where('nama', 'like', '%' . $this->search . '%')
+            'guru' => GuruModel::with(['user', 'kelas'])->where('nama', 'like', '%' . $this->search . '%')
                 ->orWhere('nip', 'like', '%' . $this->search . '%')
                 ->paginate($this->perPage),
         ]);
@@ -205,11 +205,21 @@ class Guru extends Component
 
     public function delete()
     {
-        GuruModel::where('nip', $this->deleteId)->delete();
+        $guru = GuruModel::where('nip', $this->deleteId)->first();
+
+        if (
+            $guru->kelas()->exists()
+            || $guru->user()->exists()
+        ) {
+            session()->flash('failed', 'Gagal Menghapus! Data sedang digunakan di tabel lain');
+            $this->closeDeleteModalPopover();
+            return;
+        }
+
+        $guru->delete();
         $user = User::where('username', $this->deleteId)->first();
         $user->tokens->each->delete();
         $user->delete();
-
         session()->flash('success', 'Berhasil menghapus data guru');
 
         $this->closeDeleteModalPopover();

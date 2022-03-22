@@ -192,8 +192,19 @@ class Kelas extends Component
 
     public function delete()
     {
-        \App\Models\Kelas::find($this->deleteId)->delete();
+        $kelas = \App\Models\Kelas::find($this->deleteId);
 
+        if (
+            $kelas->guru()->exists()
+            || $kelas->siswa()->exists()
+            || $kelas->jurusan()->exists()
+        ) {
+            session()->flash('failed', 'Gagal Menghapus! Data sedang digunakan di tabel lain');
+            $this->closeDeleteModalPopover();
+            return;
+        }
+
+        $kelas->delete();
         session()->flash('success', 'Berhasil menghapus data kelas');
 
         $this->closeDeleteModalPopover();
