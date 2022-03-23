@@ -52,10 +52,6 @@
                     </th>
                     <th scope="col"
                         class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase">
-                        Mengajar
-                    </th>
-                    <th scope="col"
-                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase">
                         Status Kepegawaian
                     </th>
                     <th scope="col"
@@ -74,13 +70,6 @@
                         </td>
                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                             {{ $b->nama }}
-                        </td>
-                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                            <ul>
-                                @foreach ($b->mapel as $mapel)
-                                    <li>Kelas {{ $mapel->nama }}</li>
-                                @endforeach
-                            </ul>
                         </td>
                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{ $b->status }}</td>
                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
