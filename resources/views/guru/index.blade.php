@@ -52,7 +52,7 @@
                     </th>
                     <th scope="col"
                         class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase">
-                        Mengajar Di
+                        Mengajar
                     </th>
                     <th scope="col"
                         class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase">
@@ -77,8 +77,8 @@
                         </td>
                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                             <ul>
-                                @foreach ($b->kelas as $kelas)
-                                    <li>Kelas {{ $kelas->nama }}</li>
+                                @foreach ($b->mapel as $mapel)
+                                    <li>Kelas {{ $mapel->nama }}</li>
                                 @endforeach
                             </ul>
                         </td>

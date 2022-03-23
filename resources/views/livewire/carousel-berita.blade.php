@@ -7,7 +7,10 @@
                 data-carousel-item="active">
                 <img src="{{ Storage::url('images/' . $b->foto) }}"
                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-                <h2 class="absolute max-w-sm p-6 text-3xl font-bold text-white">{{ $b->judul }}</h2>
+                <div class="absolute max-w-sm p-6 text-white">
+                    <h2 class="text-3xl font-bold">{{ $b->judul }}</h2>
+                    <p class="text-lg truncate">{{ $b->deskripsi }}</p>
+                </div>
             </div>
         @endforeach
     </div>

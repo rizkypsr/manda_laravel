@@ -16,6 +16,11 @@ class Mapel extends Model
 
     protected $table = "mapel";
 
+    public function guru()
+    {
+        return $this->belongsToMany(Guru::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *

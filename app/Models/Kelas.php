@@ -23,11 +23,6 @@ class Kelas extends Model
         return $this->hasMany(Siswa::class);
     }
 
-    public function guru()
-    {
-        return $this->belongsToMany(Guru::class);
-    }
-
      /**
      * The attributes that are mass assignable.
      *

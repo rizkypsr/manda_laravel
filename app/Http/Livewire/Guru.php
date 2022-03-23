@@ -37,7 +37,7 @@ class Guru extends Component
         $this->header = 'Guru';
 
         return view('guru.index', [
-            'guru' => GuruModel::with(['user', 'kelas'])->where('nama', 'like', '%' . $this->search . '%')
+            'guru' => GuruModel::with(['user', 'mapel'])->where('nama', 'like', '%' . $this->search . '%')
                 ->orWhere('nip', 'like', '%' . $this->search . '%')
                 ->paginate($this->perPage),
         ]);

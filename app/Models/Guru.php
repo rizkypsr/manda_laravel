@@ -25,9 +25,9 @@ class Guru extends Model
         return $this->hasOne(User::class, 'username', 'nip');
     }
 
-    public function kelas()
+    public function mapel()
     {
-        return $this->belongsToMany(Kelas::class);
+        return $this->belongsToMany(Mapel::class);
     }
 
     /**
@@ -43,6 +43,5 @@ class Guru extends Model
         'jenis_kelamin',
         'agama',
         'pendidikan',
-        'kelas_id'
     ];
 }

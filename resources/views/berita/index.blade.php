@@ -60,7 +60,7 @@
                         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                             <div>{{ $b->judul }}</div>
                         </td>
-                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{{ $b->deskripsi }}</td>
+                        <td class="px-6 py-4 text-sm text-gray-500">{{ $b->deskripsi }}</td>
                         <td class="flex px-6 py-4 space-x-4 text-sm font-medium text-right whitespace-nowrap">
                             <button wire:click="edit({{ $b->id }})"
                                 class="text-blue-600 hover:underline">Edit</button>
